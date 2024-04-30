@@ -1,0 +1,73 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "configure (debug)",
+      "type": "shell",
+      "command": "./scripts/configure.sh",
+      "args": [
+        "--name",
+        "tcp-server",
+        "--type",
+        "Debug"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "clear": true
+      }
+    },
+    {
+      "label": "configure (release)",
+      "type": "shell",
+      "command": "./scripts/configure.sh",
+      "args": [
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "clear": true
+      }
+    },
+    {
+      "label": "build (debug)",
+      "type": "shell",
+      "command": "./scripts/build.sh",
+      "args": [
+        "--name",
+        "tcp-server",
+        "--type",
+        "Debug"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "clear": true,
+        "focus": true
+      }
+    },
+    {
+      "label": "build (release)",
+      "type": "shell",
+      "command": "./scripts/build.sh",
+      "args": [
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "clear": true,
+        "focus": true
+      }
+    }
+  ]
+}
