@@ -1,4 +1,2 @@
-!app/bin/*.py
-
 .build/
-app/bin
+app/out

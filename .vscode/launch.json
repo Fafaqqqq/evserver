@@ -8,11 +8,11 @@
       "name": "server(dbg)",
       "type": "lldb",
       "request": "launch",
-      "program": "${workspaceFolder}/app/bin/tcp-server",
+      "program": "${workspaceFolder}/app/out/Debug/tcp-server",
       "args": [
 
       ],
-      "cwd": "${workspaceFolder}/app/bin",
+      "cwd": "${workspaceFolder}/app/out/Debug",
       "preLaunchTask": "build (debug)"
     }
   ]

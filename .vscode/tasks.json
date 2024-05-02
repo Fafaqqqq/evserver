@@ -25,6 +25,8 @@
       "type": "shell",
       "command": "./scripts/configure.sh",
       "args": [
+        "--name",
+        "tcp-server",
       ],
       "options": {
         "cwd": "${workspaceFolder}"
@@ -60,6 +62,8 @@
       "type": "shell",
       "command": "./scripts/build.sh",
       "args": [
+        "--name",
+        "tcp-server",
       ],
       "options": {
         "cwd": "${workspaceFolder}"

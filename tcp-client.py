@@ -9,14 +9,17 @@ def send_data_to_server(server_address, server_port, data):
         # Connect to the server
         client_socket.connect((server_address, server_port))
 
-        # Send data to the server
-        client_socket.sendall(data.encode())
+        num_cycles = 3
 
-        print(f"Data sent successfully. Data: {data}")
+        for i in range(num_cycles):
+            # Send data to the server
+            client_socket.sendall((data + " " + str(i)).encode())
 
-        # Receive response from the server
-        response = client_socket.recv(1024).decode()
-        print("Received response from server:", response)
+            print(f"Data sent successfully. Data: {data}")
+
+            # Receive response from the server
+            response = client_socket.recv(1024).decode()
+            print("Received response from server:", response)
 
     except Exception as e:
         print(f"Error: {e}")
@@ -31,7 +34,7 @@ if __name__ == "__main__":
     data_to_send = "Hello, server!"
 
     # Number of times to send data
-    num_cycles = 5
+    num_cycles = 15
 
     for _ in range(num_cycles):
         send_data_to_server(server_address, server_port, data_to_send)

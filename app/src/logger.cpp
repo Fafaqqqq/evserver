@@ -20,7 +20,7 @@ logger::pointer logger::get() {
   return __instance ? __instance
                     // Не очень хорошо использовать new для создания shared_ptr.
                     // Лучше бы сделать static-объект и возвращать на него raw-указатель,
-                    // Но сейчас просто хочу сделать так - черещ new.
+                    // Но сейчас просто хочу сделать так - через new.
                     : __instance = std::shared_ptr<logger>(new logger());
 }
 
@@ -40,4 +40,9 @@ void logger::print(const char* format, ...) {
   date_str[strlen(date_str) - 1] = 0;
 
   file_ << date_str << " | " << str_buf_.data() << std::endl;
+  printf("%s | ", date_str);
+  va_list vars_new;
+  va_start(vars_new, format);
+  vprintf(format, vars_new);
+  putchar('\n');
 }
